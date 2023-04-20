@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+C:\Users\Kostana\Desktop\New folder\IT prekvalifikacije\Predavanja-Eclipse\p03_Operatori i stringovi\.metadata\.plugins\org.eclipse.jdt.core
+1711501418.index
+3033790348.index
+3638263225.index
+2959441703.index
+1865797976.index
+1482603485.index
+3701421313.index

@@ -1,0 +1,309 @@
+package matrica;
+papackage DrugiZadatak;
+
+import java.util.Scanner;
+
+public class Verzija2 {
+
+	public static void main(String[] args) {
+		double rn = Math.random() * 10;
+		double rn2 = Math.random() * 10;
+		int irn = (int) rn;
+		int jrn = (int) rn2;
+		char simbol = 'x';
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Izaberite matricu...");
+		System.out.println("1 za matricu 3x3 \n2 za matricu 5x5 \n3 za matricu 10x10 \n4 za matricu nxm");
+		int tipMatrice = 0;
+		while (true) {
+			try {
+				tipMatrice = sc.nextInt();
+				if (tipMatrice < 1 || tipMatrice > 4)
+					throw new Exception();
+				break;
+			} catch (Exception e) {
+				System.out.println("Pritisnite taster od 1-4.");
+			}
+
+		}
+		System.out.println(tipMatrice);
+		switch (tipMatrice) {
+		case 1:
+			char[][] matrica3 = new char[3][3];
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					matrica3[i][j] = '0';
+				}
+			}
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					System.out.print(matrica3[i][j] + " ");
+				}
+				System.out.println();
+			}
+
+			irn = irn % 3;
+			jrn = jrn % 3;
+			matrica3[irn][jrn] = simbol;
+			int red3;
+			int kolona3;
+			int counter3 = 0;
+			while (counter3 < 5) {
+				counter3++;
+				while (true) {
+					try {
+						System.out.println("Trazeni simbol se nalazi u kom redu?");
+						red3 = sc.nextInt();
+						if (red3 <= 0 || red3 > 3)
+							throw new Exception();
+						System.out.println("U kojoj koloni?");
+						kolona3 = sc.nextInt();
+						if (kolona3 <= 0 || kolona3 > 3)
+							throw new Exception();
+						break;
+					} catch (Exception e) {
+						System.out.println("Broj redova i kolona se krece od 1 do 3.");
+					}
+
+				}
+				red3 = red3 - 1;
+				kolona3 = kolona3 - 1;
+				if (matrica3[irn][jrn] == matrica3[red3][kolona3]) {
+					System.out.println("Pogodili ste iz " + counter3 + ". pokusaja. Resenje je:");
+					for (int i = 0; i < matrica3.length; i++) {
+						for (int j = 0; j < matrica3[i].length; j++) {
+							System.out.print(matrica3[i][j] + " ");
+						}
+						System.out.println();
+					}
+					break;
+				} else {
+					System.out.println("Niste pogodili. Preostali broj pokusaja: " + (5 - counter3));
+				}
+			}
+			if (counter3 == 5) {
+				System.out.println("Izgubili ste. Resenje je:");
+				for (int i = 0; i < matrica3.length; i++) {
+					for (int j = 0; j < matrica3[i].length; j++) {
+						System.out.print(matrica3[i][j] + " ");
+					}
+					System.out.println();
+				}
+			}
+			break;
+
+		case 2:
+			char[][] matrica5 = new char[5][5];
+			for (int i = 0; i < matrica5.length; i++) {
+				for (int j = 0; j < matrica5[i].length; j++) {
+					matrica5[i][j] = '0';
+				}
+			}
+			for (int i = 0; i < matrica5.length; i++) {
+				for (int j = 0; j < matrica5[i].length; j++) {
+					System.out.print(matrica5[i][j] + " ");
+				}
+				System.out.println();
+			}
+			irn = irn % 5;
+			jrn = jrn % 5;
+			matrica5[irn][jrn] = simbol;
+			int red5;
+			int kolona5;
+			int counter5 = 0;
+			while (counter5 < 3) {
+				counter5++;
+				while (true) {
+					try {
+						System.out.println("Trazeni simbol se nalazi u kom redu?");
+						red5 = sc.nextInt();
+						if (red5 <= 0 || red5 > 5)
+							throw new Exception();
+						System.out.println("U kojoj koloni?");
+						kolona5 = sc.nextInt();
+						if (kolona5 <= 0 || kolona5 > 5)
+							throw new Exception();
+						break;
+					} catch (Exception e) {
+						System.out.println("Broj redova i kolona se krece od 1 do 5.");
+					}
+
+				}
+				red5 = red5 - 1;
+				kolona5 = kolona5 - 1;
+				if (matrica5[irn][jrn] == matrica5[red5][kolona5]) {
+					System.out.println("Pogodili ste iz " + counter5 + ". pokusaja. Resenje je:");
+					for (int i = 0; i < matrica5.length; i++) {
+						for (int j = 0; j < matrica5[i].length; j++) {
+							System.out.print(matrica5[i][j] + " ");
+						}
+						System.out.println();
+					}
+					break;
+				} else {
+					System.out.println("Niste pogodili. Preostali broj pokusaja: " + (3 - counter5));
+				}
+			}
+			if (counter5 == 3) {
+				System.out.println("Izgubili ste. Resenje je:");
+				for (int i = 0; i < matrica5.length; i++) {
+					for (int j = 0; j < matrica5[i].length; j++) {
+						System.out.print(matrica5[i][j] + " ");
+					}
+					System.out.println();
+				}
+			}
+			break;
+
+		case 3:
+			char[][] matrica10 = new char[10][10];
+			for (int i = 0; i < matrica10.length; i++) {
+				for (int j = 0; j < matrica10[i].length; j++) {
+					matrica10[i][j] = '0';
+				}
+			}
+			for (int i = 0; i < matrica10.length; i++) {
+				for (int j = 0; j < matrica10[i].length; j++) {
+					System.out.print(matrica10[i][j] + " ");
+				}
+				System.out.println();
+			}
+
+			matrica10[irn][jrn] = simbol;
+			int red10;
+			int kolona10;
+			int counter10 = 0;
+			while (counter10 < 2) {
+				counter10++;
+				while (true) {
+					try {
+						System.out.println("Trazeni simbol se nalazi u kom redu?");
+						red10 = sc.nextInt();
+						if (red10 <= 0 || red10 > 10)
+							throw new Exception();
+						System.out.println("U kojoj koloni?");
+						kolona10 = sc.nextInt();
+						if (kolona10 <= 0 || kolona10 > 10)
+							throw new Exception();
+						break;
+					} catch (Exception e) {
+						System.out.println("Broj redova i kolona se krece od 1 do 10.");
+					}
+
+				}
+				red10 = red10 - 1;
+				kolona10 = kolona10 - 1;
+				if (matrica10[irn][jrn] == matrica10[red10][kolona10]) {
+					System.out.println("Pogodili ste iz " + counter10 + ". pokusaja. Resenje je:");
+					for (int i = 0; i < matrica10.length; i++) {
+						for (int j = 0; j < matrica10[i].length; j++) {
+							System.out.print(matrica10[i][j] + " ");
+						}
+						System.out.println();
+					}
+					break;
+				} else {
+					System.out.println("Niste pogodili. Preostali broj pokusaja: " + (2 - counter10));
+				}
+			}
+			if (counter10 == 2) {
+				System.out.println("Izgubili ste. Resenje je:");
+				for (int i = 0; i < matrica10.length; i++) {
+					for (int j = 0; j < matrica10[i].length; j++) {
+						System.out.print(matrica10[i][j] + " ");
+					}
+					System.out.println();
+				}
+			}
+			break;
+		case 4:
+			int redR;
+			int kolonaR;
+			while (true) {
+				try {
+					System.out.println("Unesite zeljeni broj redova: ");
+					redR = sc.nextInt();
+					System.out.println("Unesite zeljeni broj kolona:");
+					kolonaR = sc.nextInt();
+					if (redR <= 0 || kolonaR <= 0)
+						throw new Exception();
+					break;
+				} catch (Exception e1) {
+					System.out.println("Unesite ceo pozitivan broj.");
+				}
+			}
+			char[][] matricaR = new char[redR][kolonaR];
+
+			for (int i = 0; i < matricaR.length; i++) {
+				for (int j = 0; j < matricaR[i].length; j++) {
+					matricaR[i][j] = '0';
+				}
+			}
+			for (int i = 0; i < matricaR.length; i++) {
+				for (int j = 0; j < matricaR[i].length; j++) {
+					System.out.print(matricaR[i][j] + " ");
+				}
+				System.out.println();
+			}
+
+			while (irn >= redR || jrn >= kolonaR) {
+				irn = (int) (Math.random() * 10);
+				jrn = (int) (Math.random() * 10);
+			}
+			matricaR[irn][jrn] = simbol;
+			System.out.println("Unesite zeljeni broj pokusaja: ");
+			int t = sc.nextInt();
+			int counterR = 0;
+			int redRand;
+			int kolonaRand;
+			while (counterR < t) {
+				counterR++;
+				while (true) {
+					try {
+						System.out.println("Trazeni simbol se nalazi u kom redu?");
+						redRand = sc.nextInt();
+						if (redRand <= 0 || redRand > redR)
+							throw new Exception();
+						System.out.println("U kojoj koloni?");
+						kolonaRand = sc.nextInt();
+						if (kolonaRand <= 0 || kolonaRand > kolonaR)
+							throw new Exception();
+						break;
+					} catch (Exception e) {
+						System.out.println("Broj redova i kolona se krece od 1 do " + Math.max(redR, kolonaR));
+					}
+
+				}
+				redRand = redRand - 1;
+				kolonaRand = kolonaRand - 1;
+				if (matricaR[irn][jrn] == matricaR[redRand][kolonaRand]) {
+					System.out.println("Pogodili ste iz " + counterR + ". pokusaja. Resenje je:");
+					for (int i = 0; i < matricaR.length; i++) {
+						for (int j = 0; j < matricaR[i].length; j++) {
+							System.out.print(matricaR[i][j] + " ");
+						}
+						System.out.println();
+					}
+					break;
+				} else {
+					System.out.println("Niste pogodili. Preostali broj pokusaja: " + (t - counterR));
+				}
+			}
+			if (counterR == t) {
+				System.out.println("Izgubili ste. Resenje je:");
+				for (int i = 0; i < matricaR.length; i++) {
+					for (int j = 0; j < matricaR[i].length; j++) {
+						System.out.print(matricaR[i][j] + " ");
+					}
+					System.out.println();
+				}
+			}
+			break;
+		default:
+			System.out.println("Pogresan unos.");
+			break;
+		}
+		sc.close();
+	}
+
+}
